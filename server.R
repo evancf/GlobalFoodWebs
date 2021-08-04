@@ -53,11 +53,14 @@ function(input, output){
   
   # This returns the correct dataset
   datasetInput <- reactive({
-    if (input$web_type == "Natural"){
+    if (input$web_type == "Extant + Extinct"){
       dataset <- web_pres_nat[[clicked_cell()]]
     }
-    else if (input$web_type == "Current"){
+    else if (input$web_type == "Extant"){
       dataset <- web_current[[clicked_cell()]]
+    }
+    else if (input$web_type == "Extant - Endangered"){
+      dataset <- web_no_endangered[[clicked_cell()]]
     }
     return(dataset)
   })
